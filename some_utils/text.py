@@ -52,3 +52,10 @@ def box_text(text, fmt="regular", padding=(0, 0)):
         s += vl + ' ' * h_len + vl + '\n'
     s += bl + hl * h_len + br
     return s
+    
+
+def random_string(n):
+    import random
+    import string
+    return ''.join(random.choice(string.digits+string.ascii_letters) for _ in range(n))
+    
