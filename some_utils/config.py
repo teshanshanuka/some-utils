@@ -1,12 +1,13 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
+
 import yaml
 import re
 
 
 class ConfigLoader:
     """For json/yaml configs with string keys"""
-    data = None  # type: dict
+    data: dict = None
     sep = '/'
 
     def __init__(self, file_path=None, string=None, dict_=None, sep='/', validate=True):
@@ -32,10 +33,9 @@ class ConfigLoader:
             sep = ConfigLoader.sep
         for k, v in data.items():
             if not (isinstance(k, str)):
-                raise AttributeError("All keys should be string to use this class. '{}' is not".format(k))
+                raise AttributeError(f"All keys should be string to use this class. '{k}' is not")
             if sep in k:
-                raise AttributeError("Keys should not contain the separator '{}'. "
-                                     "Please specify a different `sep`".format(sep))
+                raise AttributeError(f"Keys should not contain the separator '{sep}'")
             if isinstance(v, dict):
                 ConfigLoader.validate(v, sep)
 
@@ -46,7 +46,7 @@ class ConfigLoader:
             try:
                 v = v[k]
             except (TypeError, KeyError):
-                raise KeyError("Invalid path. In path '{}', key '{}' not found".format(key, k))
+                raise KeyError(f"Invalid path. In path '{key}', key '{k}' not found")
         return v
 
     def __contains__(self, key):
