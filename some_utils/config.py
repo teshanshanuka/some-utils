@@ -29,15 +29,14 @@ class ConfigLoader:
 
     @staticmethod
     def validate(data, sep=None):
-        if sep is None:
-            sep = ConfigLoader.sep
+        _sep = sep or ConfigLoader.sep
         for k, v in data.items():
             if not (isinstance(k, str)):
                 raise AttributeError(f"All keys should be string to use this class. '{k}' is not")
-            if sep in k:
-                raise AttributeError(f"Keys should not contain the separator '{sep}'")
+            if _sep in k:
+                raise AttributeError(f"Keys should not contain the separator '{_sep}'")
             if isinstance(v, dict):
-                ConfigLoader.validate(v, sep)
+                ConfigLoader.validate(v, _sep)
 
     def __getitem__(self, key):
         keys = key.split(self.sep)
