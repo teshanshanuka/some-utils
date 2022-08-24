@@ -15,3 +15,10 @@ def compare(a, b, keys=''):
             compare(v, b[k], keys+f'[{k}]')
     else:
         assert a == b, f"Keys: {keys} - Expected: {a} Got: {b}"
+        
+class Version(tuple):
+    _n_ids = 3
+    def __new__(cls, string):
+        vals = string.split('.')
+        vals += ('0',)*(cls._n_ids-len(vals))
+        return tuple.__new__(cls, map(int, vals))
