@@ -1,18 +1,31 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
+class TermColor(str):
+    ENDC = "\033[0m"
 
-class CmdColors:
+    def __call__(self, s: str) -> str:
+        return f"{self}{s}{self.ENDC}"
+
+
+class TermColors:
     """Some colors to help print into terminal"""
-    HEADER = '\033[95m'
-    RED = '\033[0;31m'
-    YELLOW = '\033[0;33m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    header = TermColor("\033[95m")
+    red = TermColor("\033[0;31m")
+    yellow = TermColor("\033[0;33m")
+    okblue = TermColor("\033[94m")
+    okgreen = TermColor("\033[92m")
+    warning = TermColor("\033[93m")
+    fail = TermColor("\033[91m")
+    bold = TermColor("\033[1m")
+    underline = TermColor("\033[4m")
+    endc = TermColor("\033[0m")
+
+
+class TermSymbols:
+    check = "✓"
+    cross = "✗"
+    l_arrow = "←"
+    r_arrow = "→"  
 
 
 def box_text(text, fmt="regular", padding=(0, 0)):
