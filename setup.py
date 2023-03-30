@@ -1,7 +1,6 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
 import setuptools
-import some_utils
 
 with open("README.md") as fp:
     long_description = fp.read()
@@ -11,7 +10,6 @@ with open("requirements.txt") as fp:
 
 setuptools.setup(
     name="some_utils",  # Some name for the package
-    version=some_utils.__version__,
     author="Teshan Liyanage",
     author_email="teshanuka@gmail.com",
     description="Some useful utilities by Teshan Liyanage",
