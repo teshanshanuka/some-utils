@@ -1,6 +1,9 @@
 .idea/
 .vscode/
-*.pkl
 *.egg-info/
+
 __pycache__/
 build/
+
+*.pkl
+*.pdf
