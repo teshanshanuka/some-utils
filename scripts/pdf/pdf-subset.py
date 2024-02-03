@@ -2,7 +2,7 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
 import sys
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfWriter, PdfReader
 
 """Create a new pdf from a subset of pages from the original"""
 
@@ -18,11 +18,11 @@ print(f"Creating '{op}' from pages {pages}")
 
 
 with open(ip, "rb") as ifd, open(op, "wb") as ofd:
-    inputpdf = PdfFileReader(ifd)
-    output = PdfFileWriter()
+    inputpdf = PdfReader(ifd)
+    output = PdfWriter()
 
-    for i in range(inputpdf.numPages):
+    for i in range(len(inputpdf.pages)):
         if i+1 in pages:
-            output.addPage(inputpdf.getPage(i))
+            output.add_page(inputpdf.pages[i])
 
     output.write(ofd)

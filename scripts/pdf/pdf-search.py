@@ -17,7 +17,7 @@ def colorize(txt, start, end, color=RED):
 
 def search_in(file, pattern):
     with open(file, 'rb') as fp:
-        reader = PyPDF2.PdfFileReader(fp)
+        reader = PyPDF2.PdfReader(fp)
         print(f"\n{YELLOW}>>> {file} ({reader.numPages} pages){ENDC}")
         
         for pn in range(reader.numPages):

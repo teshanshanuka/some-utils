@@ -2,7 +2,7 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
 import sys
-from PyPDF2 import PdfFileMerger
+from PyPDF2 import PdfMerger
 
 """Create a new pdf from a subset of pages from the original"""
 
@@ -15,7 +15,7 @@ op = sys.argv[-1]
 
 print(f"Creating {op} from {','.join(pdfs)}")
 
-merger = PdfFileMerger()
+merger = PdfMerger()
 
 for pdf in pdfs:
     merger.append(pdf)
