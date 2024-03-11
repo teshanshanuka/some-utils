@@ -11,6 +11,10 @@ if len(sys.argv) < 3:
 
 from PIL import Image
 
+# For `OSError: image file is truncated`
+# from PIL import ImageFile
+# ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 imgs = sys.argv[1:-1]
 op = sys.argv[-1]
 
