@@ -1,5 +1,6 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
+
 class TermColor(str):
     ENDC = "\033[0m"
 
@@ -9,6 +10,7 @@ class TermColor(str):
 
 class TermColors:
     """Some colors to help print into terminal"""
+
     header = TermColor("\033[95m")
     red = TermColor("\033[0;31m")
     yellow = TermColor("\033[0;33m")
@@ -25,11 +27,11 @@ class TermSymbols:
     check = "✓"
     cross = "✗"
     l_arrow = "←"
-    r_arrow = "→"  
+    r_arrow = "→"
 
 
 def box_text(text, fmt="regular", padding=(0, 0)):
-    """ Put text into a box in unicode
+    """Put text into a box in unicode
     :param text: Text
     :param fmt: Options - [regular, bold, rounded]
     :param padding: horizontal and vertical padding
@@ -65,10 +67,10 @@ def box_text(text, fmt="regular", padding=(0, 0)):
         s += vl + ' ' * h_len + vl + '\n'
     s += bl + hl * h_len + br
     return s
-    
+
 
 def random_string(n):
     import random
     import string
-    return ''.join(random.choice(string.digits+string.ascii_letters) for _ in range(n))
-    
+
+    return ''.join(random.choice(string.digits + string.ascii_letters) for _ in range(n))

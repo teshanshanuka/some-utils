@@ -1,6 +1,7 @@
-from threading import Thread
 import ctypes
 import time
+from threading import Thread
+
 
 class TimedOutThread(Thread):
     def __init__(self, timeout, target, args=(), kwargs=None) -> None:
@@ -23,10 +24,11 @@ class TimedOutThread(Thread):
 
 
 if __name__ == '__main__':
+
     def foo(i, name='-'):
         try:
             for _i in range(i):
-                print(i-_i, name)
+                print(i - _i, name)
                 time.sleep(1)
         except SystemExit:
             print("Exc")

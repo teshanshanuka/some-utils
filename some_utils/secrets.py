@@ -1,9 +1,9 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
-from abc import ABC, abstractmethod
-from getpass import getpass
 import os
 import re
+from abc import ABC, abstractmethod
+from getpass import getpass
 
 import keyring
 

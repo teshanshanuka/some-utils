@@ -1,8 +1,8 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
 
-import pickle
 import os
+import pickle
 from functools import wraps
 
 
@@ -18,13 +18,16 @@ def simple_cache(file):
             with open(file, 'wb') as fd:
                 pickle.dump(ret, fd)
             return ret
+
         return wrapper
+
     return decor
 
 
 if __name__ == '__main__':
+
     @simple_cache('tmp.pkl')
     def mult(a, b):
-        return a*b
+        return a * b
 
     print(mult(2, 5))

@@ -1,6 +1,6 @@
-import sys
 import subprocess
-from typing import Callable, TypeVar, Optional
+import sys
+from typing import Callable, Optional, TypeVar
 
 from .text import TermColors
 

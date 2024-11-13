@@ -1,18 +1,21 @@
 # Author: Teshan Liyanage <teshanuka@gmail.com>
 
 
-import yaml
 import re
+
+import yaml
 
 
 class ConfigLoader:
     """For json/yaml configs with string keys"""
+
     data: dict = None
     sep = '/'
 
     def __init__(self, file_path=None, string=None, dict_=None, sep='/', validate=True):
-        assert sum(bool(k) for k in [file_path, string, dict_]) == 1, \
-            "One of the parameters `file_name/string/dict_` must be provided"
+        assert (
+            sum(bool(k) for k in [file_path, string, dict_]) == 1
+        ), "One of the parameters `file_name/string/dict_` must be provided"
 
         self.sep = sep
 
@@ -64,6 +67,7 @@ class ConfigLoader:
 
 class Dict2Str:
     """Encode a dictionary with (str, number/bool) pairs to a unique string and decode string to a the original dict"""
+
     def __init__(self, properties: dict):
         """Encode a dictionary with (str, number/bool) pairs to a unique string and decode string to a the original dict
 
@@ -83,7 +87,9 @@ class Dict2Str:
         for v in properties.values():
             if 'letter' in v:
                 if not v['letter'] in _letters:
-                    raise ValueError(f"Letter {v['letter']} invalid. Did you duplicate letters? Or used a non ascii letter?")
+                    raise ValueError(
+                        f"Letter {v['letter']} invalid. Did you duplicate letters? Or used a non ascii letter?"
+                    )
                 _letters.remove(v['letter'])
 
         self._properties = deepcopy(properties)
@@ -115,9 +121,11 @@ class Dict2Str:
                 assert isinstance(self._properties[k]['map'][v], int), "Mapping is expected to map to int values"
                 s += f"{self._properties[k]['letter']}{self._properties[k]['map'][v]}"
             else:
-                assert isinstance(v, (int, float, bool)), f"Key: {k}; Expected types are `(int, float, bool)`. " \
-                                                          f"Got '{v}' of type {type(v)}. Specify a `map` for this " \
-                                                          "key if this value is of none of these types"
+                assert isinstance(v, (int, float, bool)), (
+                    f"Key: {k}; Expected types are `(int, float, bool)`. "
+                    f"Got '{v}' of type {type(v)}. Specify a `map` for this "
+                    "key if this value is of none of these types"
+                )
                 if isinstance(v, bool):
                     s += f"{self._properties[k]['letter']}{1 if v else 0}"
                 else:
