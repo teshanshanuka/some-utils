@@ -1,6 +1,6 @@
 [project]
 name = "some-utils"
-dynamic = ["version"]
+version = "0.0.1"
 authors = [{ name = "Teshan Liyanage", email = "teshanuka@gmail.com" }]
 description = "Some useful utilities"
 readme = "README.md"
@@ -16,6 +16,7 @@ build-backend = "setuptools.build_meta"
 # example from https://github.com/python-semantic-release/python-semantic-release/blob/master/pyproject.toml
 [tool.semantic_release]
 version_variables = ["some_utils/__init__.py:__version__"]
+version_toml = ["pyproject.toml:project.version"]
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = [
