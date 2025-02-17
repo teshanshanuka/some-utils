@@ -1,11 +1,11 @@
 import subprocess
 import sys
-from typing import Callable, Optional, TypeVar
+from typing import Callable, NoReturn
 
 from .text import TermColors
 
 
-def err_exit(msg="", code=1):
+def err_exit(msg="", code=1) -> NoReturn:
     if msg:
         print(TermColors.red(msg))
     sys.exit(code)
