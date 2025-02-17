@@ -11,7 +11,11 @@ def err_exit(msg="", code=1):
     sys.exit(code)
 
 
-def run_cmd(cmd: list[str], on_err: Callable[[str], None] = RuntimeError, echo=False):
+def _raise_runtime(s: str):
+    raise RuntimeError(s)
+
+
+def run_cmd(cmd: list[str], on_err: Callable[[str], None] = _raise_runtime, echo=False):
     if echo:
         print(TermColors.okgreen(f"+ Running: {' '.join(cmd)}"))
     try:
