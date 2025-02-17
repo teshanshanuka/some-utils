@@ -20,9 +20,13 @@ def run_cmd(cmd: list[str], on_err: Callable[[str], None] = _raise_runtime, echo
         print(TermColors.okgreen(f"+ Running: {' '.join(cmd)}"))
     try:
         res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        if stderr := res.stderr.decode():
-            on_err(f"Process returned err: {stderr}")
-            return
+        if res.returncode != 0:
+            if stderr := res.stderr.decode():
+                on_err(f"Process returned with error code {res.returncode}. Err: {stderr}")
+                return
+            else:
+                on_err(f"Process returned with error code {res.returncode}")
+                return
 
         return res.stdout.decode()
     except FileNotFoundError as err:
