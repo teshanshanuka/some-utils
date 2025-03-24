@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.3 (2025-03-24)
+
+### Chores
+
+- Python3.8 compatibility
+  ([`8d6939f`](https://github.com/teshanshanuka/some-utils/commit/8d6939f02f94248ab9e422b33329cce8c3c23a54))
+
+
 ## v0.0.2 (2025-02-17)
 
 ### Bug Fixes
