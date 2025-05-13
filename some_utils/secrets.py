@@ -13,6 +13,9 @@ def set_passwd(app: str, usr: str, passwd: str = None, input_=False, set_prompt=
         raise RuntimeError("Either `passwd` or `input_` argument must be given")
     if input_:
         passwd = getpass(set_prompt)
+        passwd2 = getpass("Confirm password: ")
+        if passwd != passwd2:
+            raise RuntimeError("Passwords do not match")
     keyring.set_password(app, usr, passwd)
 
 
