@@ -74,7 +74,7 @@ class EnvVarSecrets(SecretStorage):
     def get_var_name(app, key):
         var_name = f"{app}_{key}".upper()
         if not re.match(r"\w+", var_name):
-            raise ValueError(f"app and key must match r'\w+' - got {app=} {key=} {var_name=}")
+            raise ValueError(f"app and key must match r'\\w+' - got {app=} {key=} {var_name=}")
         return var_name
 
     def _get_password(self, app, key) -> str:
