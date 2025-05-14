@@ -7,7 +7,7 @@ from .text import TermColors
 
 def err_exit(msg="", code=1) -> NoReturn:
     if msg:
-        print(TermColors.red(msg))
+        print(TermColors.red(msg), file=sys.stderr)
     sys.exit(code)
 
 
