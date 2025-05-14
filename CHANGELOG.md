@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.0.4 (2025-05-14)
+
+### Bug Fixes
+
+- Err_exit message sent to stdout instead of stderr
+  ([`14a93c4`](https://github.com/teshanshanuka/some-utils/commit/14a93c45952383a68f838e7a42c55d7e35825871))
+
+- Syntax error in secrets
+  ([`1f65d08`](https://github.com/teshanshanuka/some-utils/commit/1f65d0819a7b23512a760f36d6ff4547ce81b061))
+
+### Features
+
+- Set pwd asks for pwd confirmation
+  ([`a81959a`](https://github.com/teshanshanuka/some-utils/commit/a81959ac4dddb9a83c7a8ae344a9546fc4d0641b))
+
+
 ## v0.0.3 (2025-03-24)
 
 ### Chores
