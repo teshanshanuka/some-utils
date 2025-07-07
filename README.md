@@ -5,7 +5,7 @@
 Follow [semantic versioning](https://py-pkgs.org/07-releasing-versioning.html)
 
 ```sh
-# pip install python-semantic-release
+# uv tool install python-semantic-release
 semantic-release version --no-push # --patch / --minor / --major
 # verify commit and tag
 git push && git push --tags
