@@ -45,6 +45,9 @@ class SecretStorage(ABC):
             raise RuntimeError("Either `passwd` or `input_` argument must be given")
         if input_:
             passwd = getpass(set_prompt)
+            passwd2 = getpass("Confirm password: ")
+            if passwd != passwd2:
+                raise RuntimeError("Passwords do not match")
         self._set_password(app, usr, passwd)
 
     def get(self, app: str, usr: str, set_=False, set_prompt=""):
